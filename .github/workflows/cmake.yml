@@ -23,3 +23,8 @@ jobs:
       run: |
         echo ${{ steps.get_datetime.outputs.date }}-${{ matrix.os }}
       shell: bash
+      
+    - uses: Jimver/cuda-toolkit@v0.2.4
+      id: cuda-toolkit
+      with:
+        cuda: '11.4.2'
