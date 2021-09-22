@@ -10,29 +10,16 @@ jobs:
   build:
     strategy:
       matrix:
-        include:
-          - os: windows-2019
-            cuda: "11.4.2"
-            visual_studio: "Visual Studio 16 2019"
+          os: [windows-2019]
   
     runs-on: windows-latest
     
     steps:
     
-    - name: Install CUDA
-      env: 
-        cuda: ${{ matrix.cuda }}
-        visual_studio: ${{ matrix.visual_studio }}
-      shell: powershell
-      run: .\scripts\actions\install_cuda_windows.ps1
-
-    - name: nvcc check
-      shell: powershell
-      run: |
-        nvcc -V
-        ls $env:CUDA_PATH
-        ls $env:CUDA_PATH\bin
-        ls $env:CUDA_PATH\include
+    - uses: Jimver/cuda-toolkit@v0.2.4
+      id: cuda-toolkit
+      with:
+        cuda: '11.2.2'
         
     - name: Get current date
       id: get_datetime
