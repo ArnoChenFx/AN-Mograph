@@ -14,15 +14,11 @@ jobs:
   
     runs-on: ${{ matrix.os }}
 
-    steps:
-    - name: Get the datetime
+    - name: Get current date
       id: get_datetime
-      uses: ccccmagicboy/get_datetime@master
-      with:
-        tz1: 'Asia'
-        tz2: 'Shanghai'
+      run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
 
     - name: Print the datetime
       run: |
-        echo ${{ steps.get_datetime.outputs.datetime_str }}-${{ matrix.packaging }}
+        echo ${{ steps.get_datetime.outputs.date }}-${{ matrix.os }}
       shell: bash
