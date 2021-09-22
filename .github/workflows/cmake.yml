@@ -12,8 +12,9 @@ jobs:
       matrix:
         os: [windows-latest]
   
-    runs-on: ${{ matrix.os }}
-
+    runs-on: windows-latest
+    
+    steps:
     - name: Get current date
       id: get_datetime
       run: echo "::set-output name=date::$(date +'%Y-%m-%d')"
