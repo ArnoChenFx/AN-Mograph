@@ -16,7 +16,8 @@ jobs:
     
     steps:
     
-    - uses: Jimver/cuda-toolkit@v0.2.4
-      id: cuda-toolkit
-      with:
-        cuda: '11.4.0'
+    - name: Installing Python
+      run: |
+          Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.7.7/python-3.7.7-amd64.exe" -OutFile Python3.7.7.exe
+          $installer = Start-Process -FilePath Python3.7.7.exe -Wait -PassThru -ArgumentList @("/S");
+          $installer.WaitForExit();
