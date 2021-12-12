@@ -23,6 +23,9 @@ jobs:
           rm llvm.7z
           Remove-Item llvm/llvm-13.0.0-windows-amd64-msvc15-msvcrt/bin -Recurse -Force -Confirm:$false
           setx LLVM_ROOT ${{ github.workspace }}/llvm/llvm-13.0.0-windows-amd64-msvc15-msvcrt
+          
+    - name: Test LLVM
+      run: |
           cd ${{ github.workspace }}/llvm/llvm-13.0.0-windows-amd64-msvc15-msvcrt/lib && ls
         
     
