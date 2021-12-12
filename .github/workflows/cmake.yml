@@ -21,8 +21,6 @@ jobs:
           Invoke-WebRequest -Uri "https://github.com/vovkos/llvm-package-windows/releases/download/llvm-master/llvm-13.0.0-windows-amd64-msvc15-msvcrt.7z" -OutFile llvm.7z
           7z x llvm.7z -ollvm
           rm llvm.7z
-          cd llvm/llvm-13.0.0-windows-amd64-msvc15-msvcrt/bin
-          ls
           Remove-Item llvm/llvm-13.0.0-windows-amd64-msvc15-msvcrt/bin -Recurse -Force -Confirm:$false
         
     
