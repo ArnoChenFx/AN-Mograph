@@ -22,5 +22,6 @@ jobs:
           7z x llvm.7z -ollvm
           rm llvm.7z
           Remove-Item llvm/llvm-13.0.0-windows-amd64-msvc15-msvcrt/bin -Recurse -Force -Confirm:$false
+          setx LLVM_ROOT ${{ github.workspace }}/llvm-13.0.0-windows-amd64-msvc15-msvcrt
         
     
