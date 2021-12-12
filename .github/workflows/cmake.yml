@@ -19,7 +19,7 @@ jobs:
     - name: Donwloading LLVM
       run: |
           Invoke-WebRequest -Uri "https://github.com/vovkos/llvm-package-windows/releases/download/llvm-master/llvm-13.0.0-windows-amd64-msvc15-msvcrt.7z" -OutFile llvm.7z
-          sz x -ollvm llvm.7z -r
+          unzip -qq './llvm.7z' -d ./llvm && rm ./llvm.7z
           cd llvm
           ls
         
