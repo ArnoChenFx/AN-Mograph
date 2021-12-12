@@ -16,8 +16,11 @@ jobs:
     
     steps:
     
-    - name: Installing Python
+    - name: Donwloading LLVM
       run: |
-          Invoke-WebRequest -Uri "https://www.python.org/ftp/python/3.7.7/python-3.7.7-amd64.exe" -OutFile Python3.7.7.exe
-          $installer = Start-Process -FilePath Python3.7.7.exe -Wait -PassThru -ArgumentList @("/S");
-          $installer.WaitForExit();
+          Invoke-WebRequest -Uri "https://github.com/vovkos/llvm-package-windows/releases/download/llvm-master/llvm-13.0.0-windows-amd64-msvc15-msvcrt.7z" -OutFile llvm.7z
+          sz x -ollvm llvm.7z -r
+          cd llvm
+          ls
+        
+    
